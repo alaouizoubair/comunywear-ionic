@@ -1,0 +1,67 @@
+
+<ion-side-menus >
+<ion-side-menu-content>
+
+    <ion-nav-bar class="bar-assertive nav-title-slide-ios7">
+        <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"  ></ion-nav-view>
+
+</ion-side-menu-content>
+
+<ion-side-menu side="left" ng-controller="MenuCtrl">
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+        	<a ui-sref="menuApp.home"  class="navigation-item">
+        		<ion-item nav-clear menu-close  class="item item-icon-left">
+                	<i class="icon ion-ios7-ionic-outline ion-home"></i>Home
+            	</ion-item>
+            </a>
+            <a ui-sref="menuApp.collection"  class="navigation-item">
+            	<ion-item nav-clear menu-close  class="item item-icon-left">
+                	<i class="icon ion-ios7-ionic-outline ion-tshirt"></i>Collection
+            	</ion-item>
+            </a>
+            <a ui-sref="menuApp.profil"  class="navigation-item">
+            	<ion-item nav-clear menu-close  class="item item-icon-left">
+                	<i class="icon ion-ios7-ionic-outline ion-person"></i>Profile
+            	</ion-item>
+            </a>
+            <a ui-sref="menuApp.following"  class="navigation-item">
+            	<ion-item nav-clear menu-close  class="item item-icon-left">
+                	<i class="icon ion-ios7-ionic-outline ion-person-stalker"></i>Abonnements
+            	</ion-item>
+            </a>
+            <a ui-sref="menuApp.follower"  class="navigation-item">
+            	<ion-item nav-clear menu-close  class="item item-icon-left">
+                	<i class="icon ion-ios7-ionic-outline ion-ios-people"></i>Abonnés
+            	</ion-item>
+            </a>
+            <a ui-sref="menuApp.invitation"  class="navigation-item">
+                <ion-item nav-clear menu-close  class="item item-icon-left">
+                    <i class="icon ion-ios7-ionic-outline ion-person-add"></i>Invitations
+                </ion-item>
+            </a>
+            <a ui-sref="menuApp.search"  class="navigation-item">
+                <ion-item nav-clear menu-close  class="item item-icon-left">
+                    <i class="icon ion-ios7-ionic-outline ion-android-search"></i>Recherche
+                </ion-item>
+            </a>
+            <a  class="navigation-item" ng-click="logout()">
+            	<ion-item nav-clear menu-close  class="item item-icon-left">
+                	<i class="icon ion-ios7-ionic-outline ion-power"></i>Déconnexion
+            	</ion-item>
+            </a>
+		</ion-list>
+	</ion-content>
+	<!-- <ion-footer-bar align-title="center" class="bar bar-footer bar-dark " ng-click="logout()">
+			
+  		<div class="title">COMUNYWEAR</div>
+
+    </ion-footer-bar> -->
+</ion-side-menu>
+</ion-side-menus>

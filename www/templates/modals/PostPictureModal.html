@@ -1,0 +1,34 @@
+<ion-modal-view class="post-picture-modal">
+    <ion-header-bar class="bar-dark">
+      <i class="icon ion-android-close close-post-picture-modal" ng-click="closePostPictureModal()" ></i>
+      <i class="icon ion-android-arrow-back back-post-picture-modal" ng-click="backPostPictureModal()" ></i>
+      <h1 class="title">Publier sur Comunywear</h1>
+      <i class="icon ion-android-arrow-forward next-post-picture-modal" ng-click="openPostOutfitModal()" ></i>
+      <i class="icon ion-android-done done-post-picture-modal" ng-click="donePostOutfitModal()" ></i>
+    </ion-header-bar>
+    <ion-content>
+    	<ion-scroll direction="y" >
+
+    		<div class="post-outfit">
+				<div class="grid " >
+
+			  		<div class="grid-item post-items" ng-repeat="outfit in outfits" ng-click="addOutfitToPost($event,outfit)">
+						<img src="{{outfit.outfit_path}}"/>
+						<i class="icon ion-android-checkmark-circle"></i>
+					</div> 
+
+				</div>
+				<br>
+			</div>
+			
+			<div class="post-picture">
+				<label class="item item-input">
+						<textarea type="text" ng-model="post.status" placeholder="C'est quoi l'histoire..." rows="3"></textarea>
+				</label>
+				<img class="post-image" ng-src="{{'data:image/jpeg;base64,'+post.picture}}"/>
+				
+			</div>
+			
+	    </ion-scroll>
+    </ion-content>
+</ion-modal-view>

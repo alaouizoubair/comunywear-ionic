@@ -1,0 +1,58 @@
+<ion-view  view-title="Recherche" ng-controller="searchCtrl" data-ng-init="init()">
+
+
+	<ion-nav-buttons side="left">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+     </ion-nav-buttons>
+
+     <ion-spinner class="loading-view" icon="ripple"></ion-spinner>
+  
+	<ion-content class="has-header padding">
+
+		<div ng-if="showMe">
+			<ion-scroll direction="x" class="wide-as-needed" scrollbar-x="false">
+        	</ion-scroll>
+       	</div>
+
+	  	<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" placeholder="Recherche"  ng-model="searchText">
+			</label>
+		</div>
+
+		<div class="card" ng-hide="accounts">
+			<div class="item item-text-wrap">
+				Rien pour le moment.
+			</div>
+		</div>
+
+
+		<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+			<ion-item class="user-list-item" ng-repeat="account in accounts | filter:searchText" >
+				<img  ng-src="{{account.image_path}}">
+
+				<span ng-hide="account.last_name">
+					{{account.first_name+'   '}}<i class="icon ion-checkmark-circled"></i>
+				</span>
+
+				<span ng-show="account.last_name">
+					{{account.last_name+' '+account.first_name}}
+				</span>
+
+
+				
+				<ion-option-button class="button-stable" ng-click="sendRequest(account)">
+						&nbsp;<i class="icon ion-android-person-add"></i>
+				</ion-option-button>
+				
+			</ion-item>
+		</ion-list>
+
+		<ion-infinite-scroll on-infinite="loadMore()" icon="none" distance="20%"></ion-infinite-scroll>
+
+	</ion-content>
+
+</ion-view>

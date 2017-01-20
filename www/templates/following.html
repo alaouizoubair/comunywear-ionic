@@ -1,0 +1,57 @@
+<ion-view  view-title="Abonnements" ng-controller="followingCtrl" data-ng-init="init()">
+
+
+	<ion-nav-buttons side="left">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+     </ion-nav-buttons>
+
+     <ion-spinner class="loading-view" icon="ripple"></ion-spinner>
+  
+	<ion-content class="has-header padding">
+
+		<div ng-if="showMe">
+			<ion-scroll direction="x" class="wide-as-needed" scrollbar-x="false">
+        	</ion-scroll>
+       	</div>
+
+	  	<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" placeholder="Recherche"  ng-model="searchText">
+			</label>
+		</div>
+
+		<div class="card" ng-hide="followings_exit">
+			<div class="item item-text-wrap">
+				Vous attendez quoi pour suivre vos marques préférées?
+			</div>
+		</div>
+
+		<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+			<ion-item class="user-list-item" ng-repeat="following in followings | filter:searchText" >
+				<img  ng-src="{{following.image_path}}">
+
+				<span ng-hide="following.user2.last_name">
+					{{following.user2.first_name+'   '}}<i class="icon ion-checkmark-circled"></i>
+				</span>
+
+				<span ng-show="following.user2.last_name">
+					{{following.user2.last_name+' '+following.user2.first_name}}
+				</span>
+
+
+				
+				<ion-option-button class="button-stable" ng-click="delete(following)">
+						&nbsp;<i class="icon ion-close-round"></i>
+				</ion-option-button>
+				
+			</ion-item>
+		</ion-list>
+
+		<ion-infinite-scroll on-infinite="loadMore()" icon="none" distance="20%"></ion-infinite-scroll>
+
+	</ion-content>
+
+</ion-view>

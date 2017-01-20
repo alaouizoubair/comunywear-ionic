@@ -1,0 +1,28 @@
+<ion-modal-view class="item-modal">
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">Boutique</h1>
+      <i class="icon ion-chevron-down close-item-modal" ng-click="closeItemModal()"  ng-swipe-down="closeItemModal()"></i>
+    </ion-header-bar>
+    <ion-content>
+    	<ion-scroll direction="y" >
+	      <ion-slide-box>
+
+		    <ion-slide ng-repeat="outfit in outfits">
+		      <div class="item-image">
+		      	<div class="card">
+		        	<img class="item-image" src="{{outfit.outfit_path}}"/>
+		        </div>
+		      	<div class="market-item-modal">
+		      		<a href="{{outfit.item.link}}" target="_blank">
+		      			<img  class="image-market-item-modal" style="width:50px;" src="img/icons/market.png"/>
+		      		</a>
+		      	</div>
+		      </div>
+		      <div class="item-modal-buy">
+		       </div>
+		    </ion-slide>
+
+		  </ion-slide-box> 
+	    </ion-scroll>
+    </ion-content>
+</ion-modal-view>

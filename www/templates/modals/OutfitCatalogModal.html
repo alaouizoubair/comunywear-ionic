@@ -1,0 +1,32 @@
+<ion-modal-view class="catalog-modal">
+    <ion-header-bar class="bar-dark">
+      <i class="icon ion-android-close back-catalog-modal" ng-click="closeCatalogModal()" ></i>
+      <h1 class="title">Catalogue Comunywear</h1>
+      <i class="icon ion-android-done done-catalog-modal" ng-click="doneOutfitCatalogModal()" ></i>
+    </ion-header-bar>
+
+
+    <ion-content>
+    	<ion-scroll direction="y" >
+
+    		<div class="list list-inset">
+				<label class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="text" placeholder="Marque"  ng-model="searchText.brand.name">
+				</label>
+			</div>
+
+    		<div >
+				<div class="grid " >
+
+			  		<div class="grid-item item-outfits" ng-repeat="outfit in allOutfits | filter: searchText" ng-click="addOutfitToPost($event,outfit)">
+						<img src="{{outfit.outfit_path}}"/>
+						<i class="icon ion-android-checkmark-circle"></i>
+					</div> 
+
+				</div>
+				<br>
+			</div>
+	    </ion-scroll>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,44 @@
+<ion-view  view-title="Collection" ng-controller="collectionCtrl" data-ng-init="init()">
+
+
+		<ion-nav-buttons side="left">
+
+	        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+	    </ion-nav-buttons>
+
+	    <ion-nav-buttons side="right">
+
+	        <button class="button button-icon icon ion-android-add" ng-click="openPopover($event)"></button>
+
+	    </ion-nav-buttons>
+  		
+  		<ion-spinner class="loading-view" icon="ripple"></ion-spinner>
+		<ion-content class="has-header padding">
+
+			<div ng-if="showMe">
+				<ion-scroll direction="x" class="wide-as-needed" scrollbar-x="false">
+	        	</ion-scroll>
+	       	</div>
+
+			<div class="row outfit-display-menu">
+				<div class="col col-25 col-offset-25" ng-click="grid_outfit_items()">
+					<i class="icon ion-grid grid-outfit-button"></i>
+				</div>
+				<div class="col col-25  " ng-click="line_outfit_items()">
+					<i class="icon ion-navicon-round line-outfit-button"></i>
+				</div>
+			</div>
+
+		  	<div class="grid " >
+
+		  		<div class="grid-item" ng-click="changeSize($event)" ng-repeat="outfit in outfits">
+					<img src="{{outfit.outfit_path}}"/>
+				</div> 
+				
+			</div>
+
+			<ion-infinite-scroll on-infinite="loadMore()" icon="none" distance="20%"></ion-infinite-scroll>
+		</ion-content>
+
+</ion-view>

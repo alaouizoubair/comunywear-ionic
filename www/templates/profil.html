@@ -1,0 +1,61 @@
+<ion-view  view-title="Profile" ng-controller="profilCtrl" data-ng-init="init()">
+
+	<ion-nav-buttons side="left">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+      </ion-nav-buttons>
+
+      	<ion-spinner class="loading-view" icon="ripple"></ion-spinner>
+  
+		<ion-content class="has-header padding profil-view">
+
+			<div ng-if="showMe">
+				<ion-scroll direction="x" class="wide-as-needed" scrollbar-x="false">
+	        	</ion-scroll>
+	       	</div>
+
+			<div class="profil-picture" ng-show="user.id">
+				<img src="{{user.image_path}}"/>
+				<br>
+				<span>Alaoui Zoubair</span>
+			</div>
+
+		  	
+
+
+			<div class="list card" ng-repeat="post in posts">
+				<div class="item item-avatar">
+					<img src="{{post.image_path}}">
+					<h2 ng-hide="post.user.last_name">
+						{{post.user.first_name+'   '}}<i class="icon ion-checkmark-circled"></i>
+					</h2>
+					<h2 ng-show="post.user.last_name">
+						{{post.user.last_name+' '+post.user.first_name}}
+					</h2>
+					<p>{{post.created_at | dateToISO | date:'longDate'}}</p>
+				</div>
+				<div class="item item-body"  >
+				    <img class="full-image" src="{{post.post_path}}" />
+				    <i class="icon ion-android-favorite-outline like-post" ng-hide="post.liked" ng-click="likePost(post)"></i>
+				    <i class="icon ion-android-favorite like-post" ng-show="post.liked" ng-click="likePost(post)"></i>
+				    <div class="post-outfits" ng-click="openItemModal(post.outfits)" ng-show="post.outfits.length">
+				    	<img class="post-outfits-btn" src="img/icons/collection.png" />
+				    </div>
+				    <p>
+				    </p>
+				    <p class="likes-comments">
+				      <a href="#" class="subdued">{{post.likes.length>1?post.likes.length+' Likes':post.likes.length+' Like'}} </a>
+				      <!-- <a href="#" class="subdued">0 Comment</a> -->
+				      <i class="icon ion-more post-more-options" ng-click="openPopover($event,post)"></i>
+				    </p>
+					<!-- <label class="item item-input">
+						<textarea type="text" placeholder="Commentaire"></textarea>
+					</label> -->
+				</div>
+			</div>
+
+			<ion-infinite-scroll on-infinite="loadMore()" icon="none" distance="20%"></ion-infinite-scroll>
+
+		</ion-content>
+</ion-view>

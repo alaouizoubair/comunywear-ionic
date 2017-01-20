@@ -1,0 +1,42 @@
+<ion-view view-title="COMUNYWEAR" hide-nav-bar="true" ng-controller="IntroCtrl" cache-view="false" >
+  <video autoplay loop class="video" webkit-playsinline requestFullScreen align="center">
+    <source src="video/fashion.webm" type="video/webm">
+  </video> 
+  <!-- <div class="card-custom-header">
+    Alexandre Vauthier
+  </div> -->
+  <div id="logo">
+    <img src="img/cwhd.png"/>
+    <h2>COMUNYWEAR</h2>
+  </div>
+  <ion-slide-box on-slide-changed="slideChanged(index)">
+
+    <ion-slide>
+        <div class="card-custom">
+          La mode, c'est ici
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="card-custom">
+          Une communauté pour faire vivre son style
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="card-custom">
+          Un monde pour partager sa passion
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="card-custom">
+          Enfin, un réseau vivant que pour la mode
+        </div>
+    </ion-slide>
+
+  </ion-slide-box> 
+
+<button class="button-auth" ng-click="authentification()">Authentification</button>
+
+</ion-view>

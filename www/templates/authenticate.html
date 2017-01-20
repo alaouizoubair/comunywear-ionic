@@ -1,0 +1,26 @@
+<ion-view  view-title="COMUNYWEAR" ng-controller="authenticate">
+
+	<ion-content class="auth-view padding">
+	  <h1>Authentification</h1>
+	  <form name="authForm">
+		  <div class="list">
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Email</span>
+				<input type="email" id="email" placeholder="Email" ng-model="auth.email" required>
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Mot de passe</span>
+				<input type="password"  placeholder="Mot de passe" ng-model="auth.password" required>
+				
+			</label>
+			<h6 class="auth-failed">Email ou mot de passe incorrect</h6>
+			<button class="button button-block button-assertive" ng-click="auth()" ng-disabled="authForm.$invalid ">
+				Connexion
+			</button>
+
+			</div>
+		</form>
+		
+	</ion-content>
+
+</ion-view>
